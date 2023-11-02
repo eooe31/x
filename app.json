@@ -3,13 +3,13 @@
     "description": " اهلا بكم في تنصيب سورس صيد اليوزرات !",
     "logo" : "https://telegra.ph/file/03671e4f4db95bfbdf9d2.jpg",
     "stack": "container",
-    "repository": "https://github.com/eooe31/X",
+    "repository": "https://github.com/eooe31/A",
     "keywords": [
         "python",
         "chatbot",
         "telegrambot"
     ],
-    "website": "https://github.com/eooe31/X",
+    "website": "https://github.com/eooe31/A",
     "env": {
         "APP_ID": {
             "description": "ايبي ايدي",
