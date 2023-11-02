@@ -79,7 +79,7 @@ async def _(event):
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(f'''
-**𝚂𝙾𝚄𝚁𝙲𝙴𝙼𝙰𝚇 𝙸𝚂 𝚁𝚄𝙽𝙽𝙸𝙽𝙶 ⏎
+𝚂𝙾𝚄𝚁𝙲𝙴𝙼𝙰𝚇 𝙸𝚂 𝚁𝚄𝙽𝙽𝙸𝙽𝙶 ⏎
 ࿘ 𝐃𝐀𝐓𝐄 : `{m9zpi}`
 ☆ ID : `{event.sender_id}`
 -قـم بأرسال `.الاوامر`
