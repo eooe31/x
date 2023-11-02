@@ -15,7 +15,7 @@ from threading import Thread
 
 a = 'qwertyuiopasdfghjklzxcvbnm'
 b = '1234567890'
-e = 'qwertyuiopasdfghjklzxcvbnm'
+e = 'qwertyuiopassdfghjklzxcvbnm1234567890'
 
 banned = []
 isclaim = ["off"]
@@ -43,17 +43,15 @@ def check_user(username):
 
 def gen_user(choice):
     if choice == "1":
-        c = random.choices(a)
-        d = random.choices(a)
-        s = random.choices(b)
+        c = d = random.choices(a)
+        d = random.choices(e)
         f = [c[0], "_", d[0], "_", d[0]]
         random.shuffle(f)
         username = ''.join(f)
         if username in banned[0]:
-            c = random.choices(a)
+            c = d = random.choices(a)
             d = random.choices(e)
-            s = random.choices(a)
-            f = [c[0], "_", d[0], "_", d[0]]
+            f = [c[0], "_", d[0], "_", c[0]]
             random.shuffle(f)
             username = ''.join(f)
         else:
@@ -186,6 +184,22 @@ def gen_user(choice):
             username = 'vip'+username
         else:
             pass
+    if choice == "11":
+        c = random.choices(e)
+        d = random.choices(e)
+        s = random.choices(e)
+        f = [c[0], d[0], s[0], c[0], s[0], d[0]]
+        random.shuffle(f)
+        username = ''.join(f)
+        if username in banned[0]:
+            c = random.choices(e)
+            d = random.choices(e)
+            s = random.choices(e)
+            f = [c[0], s[0], s[0], d[0], c[0], d[0]]
+            random.shuffle(f)
+            username = ''.join(f)
+        else:
+            pass
     return username
 
 @sython.on(events.NewMessage(outgoing=True, pattern=r"\.تشيكر"))
@@ -217,11 +231,11 @@ async def _(event):
         trys = 0
         await event.edit(f"حسناً سأفحص نوع `{choice}` من اليوزرات على `{ch}` , بعدد `{msg[0]}` من المحاولات !")
 
-        @sython.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
+        @sython.on(events.NewMessage(outgoing=True, pattern=r"\.الصيد"))
         async def _(event):
             if ispay2[0] == "yes":
                 if "on" in isclaim:
-                    await event.edit(f"الصيد وصل لـ({trys}) من المحاولات")
+                    await event.edit(f"𝐏𝐑𝐄𝐒𝐒𝗨𝐑𝐄 𝐂𝐎𝗨𝐍𝐓𝐄𝐑 ({trys}) ⏎")
                 elif "off" in isclaim:
                     await event.edit("لايوجد صيد شغال !")
                 else:
@@ -244,27 +258,26 @@ async def _(event):
                 try:
                     await sython(functions.channels.UpdateUsernameRequest(
                         channel=ch, username=username))
-                    await event.client.send_message(event.chat_id, "https://t.me/R_M_T/302",caption=f'''
+                    await event.client.send_message(event.chat_id, f'''
 Caught by a sheikh 💸
 ⤷ ID : @{username}
 ⌯ Clicks ⤷ : {trys}
 ⤷ Sheikh : @x_o_x''')
-                    await event.client.send_message("@i_R_Y", f''' ⌲ 𝙲𝙰𝚄𝙶𝙷𝚃 (@{username})
-꩜ 𝙼𝙰𝚇 ↬  {trys}
-lD: @P8_PP 
-𝚂𝙾𝚄𝚁𝙲𝙴 𝙼𝙰𝚇 : @MAX985 ''')
+                    await event.client.send_message("@i_R_Y", f'''
+Caught by a sheikh 💸
+⤷ ID : @{username}
+⌯ Clicks ⤷ : {trys}
+⤷ Sheikh : @P8_PP''')
                     break
                 except telethon.errors.rpcerrorlist.UsernameInvalidError:
                     with open("banned.txt", "a") as f:
                         f.write(f"\n{username}")
                 except Exception as eee:
-                    await sython.send_message(event.chat_id, f'''خطأ مع {username}
-    الخطأ :
-    {str(eee)}''')
+                    await sython.send_message(event.chat_id, f'''Feature @{username} ⏎''')
                     if "A wait of" in str(eee):
                         break
                     else:
-                        await sython.send_message(event.chat.id, " اجاك متاح !")
+                        await sython.send_message(event.chat.id, "𝙵𝙻𝙾𝙾𝙳 𝙶𝚄𝙻𝙿𝙴𝙳")
             else:
                 pass
             trys += 1
@@ -272,7 +285,7 @@ lD: @P8_PP
         isclaim.clear()
         isclaim.append("off")
         trys = ""
-        await event.client.send_message(event.chat_id, "انتهى تم الصيد! ")
+        await event.client.send_message(event.chat_id, "🇮🇶𝚃𝙷𝙴 𝙷𝚄𝙽𝚃 𝙸𝚂 𝙾𝚅𝙴𝚁🇮🇶")
         
 @sython.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت (.*)"))
 async def _(event):
@@ -308,10 +321,9 @@ async def _(event):
                         await sython(functions.channels.UpdateUsernameRequest(
                             channel=ch, username=username))
                         await event.client.send_message(event.chat_id, f'''
-تم الصيد (@{username})
-꩜ ᴄʟɪᴄᴋs ↬  {trys}
-lD: @Max985 / @P8_PP
-
+𝙲𝙰𝚄𝙶𝙷𝚃 (@{username})
+꩜ 𝙼𝙰𝚇 ↬  {trys}
+lD: @P8_PP / @MAX985
     ''')
                         break
                     except telethon.errors.rpcerrorlist.UsernameInvalidError:
@@ -319,9 +331,7 @@ lD: @Max985 / @P8_PP
                         break
                     except Exception as eee:
 
-                        await sython.send_message(event.chat_id, f'''خطأ مع {username}
-    الخطأ :
-    {str(eee)}''')
+                        await sython.send_message(event.chat_id, f'''Feature @{username} ⏎ ''')
                         if "A wait of" in str(eee):
                             break
                 else:
@@ -342,9 +352,9 @@ lD: @Max985 / @P8_PP
                 await sython(functions.channels.UpdateUsernameRequest(
                     channel=ch, username=username))
                 await event.client.send_message(event.chat_id, f'''
-تم الصيد (@{username})
-꩜ ᴄʟɪᴄᴋs ↬  {trys}
-lD: @Max985 / @P8_PP
+𝙲𝙰𝚄𝙶𝙷𝚃 (@{username})
+꩜ 𝙼𝙰𝚇 ↬  {trys}
+lD: @P8_PP / @MAX985
     ''')
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
                 await event.client.send_message(event.chat_id, f"مبند `{username}` ❌❌")
